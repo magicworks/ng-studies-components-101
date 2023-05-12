@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   counterProgress: number = 0;
-  totalCountdown: number = 15;
 
-  updateProgress ($event: any) {
-    this.counterProgress = (this.totalCountdown - $event) / this.totalCountdown * 100;
+  countdownForm = new FormGroup({
+    totalCountdown: new FormControl(15)
+  });
+
+  updateProgress ($event: number) {
+    const totalCountdown = this.countdownForm.get('totalCountdown')?.value;
+    if (totalCountdown)
+      this.counterProgress = (totalCountdown - $event) / totalCountdown * 100;
   }
 
   countdownFinished () {

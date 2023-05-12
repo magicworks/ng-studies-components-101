@@ -1,10 +1,21 @@
 <app-progress-bar [progress]="counterProgress"></app-progress-bar>
-<app-countdown
-  #countdown
-  [init]="totalCountdown"
-  (onDecrease)="updateProgress($event)"
-  (onComplete)="countdownFinished()"
-></app-countdown>
-<button (click)="countdown.startCountdown(); counterProgress = 0">
-  Restart
-</button>
+<form [formGroup]="countdownForm">
+  <app-countdown
+    #countdown
+    [init]="countdownForm.get('totalCountdown')?.value || null"
+    (onDecrease)="updateProgress($event)"
+    (onComplete)="countdownFinished()"
+  ></app-countdown>
+  <div class="initInput">
+    <label for="totalCountdown">Init on:</label>
+    <input
+      id="totalCountdown"
+      type="number"
+      formControlName="totalCountdown"
+      name="countdownTime"
+    />
+  </div>
+  <button (click)="countdown.startCountdown(); counterProgress = 0">
+    Restart
+  </button>
+</form>
