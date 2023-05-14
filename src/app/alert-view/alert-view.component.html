@@ -1,0 +1,23 @@
+<div>
+  <div class="background"></div>
+
+  <form [formGroup]="timeForm">
+    <div class="card">
+      <div class="header">Add new timer</div>
+
+      <div class="message">
+        <label>Set the number of seconds for your timer</label>
+        <input formControlName="time" type="number" name="time" />
+      </div>
+
+      <div class="footer">
+        <button (click)="onCancel.emit()" class="cancel-button">Cancel</button>
+        <button
+          (click)="onSubmit.emit(timeForm.get('time')?.value || undefined)"
+        >
+          Ok
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
