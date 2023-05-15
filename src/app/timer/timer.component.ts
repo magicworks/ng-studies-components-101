@@ -16,6 +16,11 @@ export class TimerComponent implements OnInit, OnDestroy {
 
   ngOnInit (): void {
     this.timer.restartCountdown(this.init);
+
+    this.timer.countdownEnd$.subscribe(() => {
+      console.log('---countdown end');
+      this.onComplete.emit();
+    });
   };
 
   ngOnDestroy (): void {

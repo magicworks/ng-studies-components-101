@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
+  logCountdownEnd () {
+    console.log("The countdown has finished");
+  }
 }
