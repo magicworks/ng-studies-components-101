@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { ProgressBarComponent } from "./progress-bar/progress-bar.component";
 import { DisplayComponent } from "./display/display.component";
@@ -25,7 +25,7 @@ import { SimpleAlertViewComponent } from './simple-alert-view/simple-alert-view.
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

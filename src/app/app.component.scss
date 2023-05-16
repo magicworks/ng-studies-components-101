@@ -31,4 +31,23 @@
             background-color: #AAA;
         }
     }
+
+    button {
+        width: 100px;
+        height: 40px;
+        margin-top: 20px;
+        background-color: #333;
+        color: white;
+        border: none;
+    }
+
+    .cancel-button {
+        margin-right: 10px;
+        background-color: #777;
+        height: 40px;
+
+        &:active {
+            background-color: #444;
+        }
+    }
 }

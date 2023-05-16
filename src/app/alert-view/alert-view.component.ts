@@ -8,14 +8,6 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class AlertViewComponent implements OnInit {
 
-  @Output() onCancel = new EventEmitter<void>();
-  @Output() onSubmit = new EventEmitter<number>();
-
-  timeForm = new FormGroup({
-    time: new FormControl(0)
-  });
-
-
   ngOnInit () {
   }
 
