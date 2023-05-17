@@ -11,13 +11,17 @@ export class AppComponent implements AfterViewInit {
   public time: number = 0;
   public timers: Array<number> = [];
   @ViewChildren(SimpleAlertViewComponent) alerts!: QueryList<SimpleAlertViewComponent>;
-
+  @ViewChild("timerInput") timerInput!: ElementRef;
 
   constructor(private cdRef: ChangeDetectorRef) {
     this.timers = [3, 20, 185];
   }
 
   ngAfterViewInit (): void {
+    console.log(this.timerInput);
+    this.timerInput.nativeElement.setAttribute("placeholder", "enter seconds");
+    this.timerInput.nativeElement.classList.add("time-in");
+
     this.alerts.forEach(item => {
       if (!item.title) {
         item.title = 'Hi!';
@@ -35,6 +39,9 @@ export class AppComponent implements AfterViewInit {
 
   public showAddTimer () {
     this.isAddTimerVisible = true;
+    setTimeout(() => {
+      this.timerInput.nativeElement.focus();
+    });
   }
 
   public hideAddTimer () {
