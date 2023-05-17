@@ -7,10 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public isAddTimerVisible: boolean = false;
-  time!: number;
+  public isEndTimerAlertVisible: boolean = false;
+  public time: number = 0;
+  public timers: Array<number> = [];
+
+  constructor() {
+    this.timers = [3, 20, 185];
+  }
 
   logCountdownEnd () {
     console.log("The countdown has finished");
+    this.showEndTimerAlert();
   }
 
   public showAddTimer () {
@@ -19,5 +26,18 @@ export class AppComponent {
 
   public hideAddTimer () {
     this.isAddTimerVisible = false;
+  }
+
+  public showEndTimerAlert () {
+    this.isEndTimerAlertVisible = true;
+  }
+
+  public hideEndTimerAlert () {
+    this.isEndTimerAlertVisible = false;
+  }
+
+  public submitAddTimer () {
+    this.timers.push(this.time);
+    this.hideAddTimer();
   }
 }
