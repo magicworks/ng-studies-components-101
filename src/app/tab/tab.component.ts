@@ -20,7 +20,6 @@ export class TabComponent implements OnInit, Tab {
 
   clickTabContent () {
     this.onClick.emit();
-    console.log('clicked and emitted');
   }
 
 }
